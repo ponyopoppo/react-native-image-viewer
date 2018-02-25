@@ -119,10 +119,16 @@ export default class ImageViewer extends React.Component<Props, State> {
     this.positionX.setValue(this.positionXNumber)
   }
 
+  public loadImage(index: number) {
+    for (let i = Math.max(0, index - this.props.preloadNum); i < Math.min(this.props.imageUrls, index + this.props.preloadNum); i++) {
+      this.loadImageOne(index);
+    }
+  }
+
   /**
    * 加载图片
    */
-  public loadImage(index: number) {
+  public loadImageOne(index: number) {
     if (!this!.state!.imageSizes![index]) {
       return
     }

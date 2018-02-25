@@ -8,6 +8,8 @@ export class Props {
    */
   public show?: boolean = false
 
+  public preloadNum: number = 0
+
   /**
    * 图片数组
    */
